@@ -30,6 +30,7 @@
     host: "{{ item }}"
     port: "{{ mongodb_net_port }}"
     timeout: 120
+    delay: 10
   with_items: "{{ mongodb_net_bindip.split(',') | map('replace', '0.0.0.0', '127.0.0.1') | list }}"
 
 - name: wait when mongodb is started on localhost
